@@ -16,6 +16,8 @@ public class PJ : MonoBehaviour
 
     public CharacterController controller;
 
+    [SerializeField] private GameObject camaraNormal, camaraZoom;
+
     private float velocidadMovimiento;
     private float velocidadRotacion;
     Transform cam;
@@ -39,6 +41,13 @@ public class PJ : MonoBehaviour
     void Update()
     {
         ActualizarMovimiento();
+        Zoom();
+    }
+    private void FixedUpdate()
+    {
+        transform.Rotate(Vector3.up * hInput * velocidadRotacion * Time.deltaTime);
+        controller.Move(transform.forward * vInput * velocidadMovimiento * Time.deltaTime);
+        controller.Move(movimientoVertical * Time.deltaTime);
     }
 
     //FUNCIONALIDADES
@@ -59,6 +68,20 @@ public class PJ : MonoBehaviour
 
         
 
+    }
+
+    void Zoom()
+    {
+        if(Input.GetMouseButtonDown(1))
+        {
+            camaraNormal.SetActive(false);
+            camaraZoom.SetActive(true);
+        }
+        else if(Input.GetMouseButtonUp(1))
+        {
+            camaraNormal.SetActive(true);
+            camaraZoom.SetActive(false);
+        }
     }
 
     void AplicarGravedad()
@@ -88,13 +111,7 @@ public class PJ : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-        transform.Rotate(Vector3.up * hInput * velocidadRotacion * Time.deltaTime);
-
-        controller.Move(transform.forward * vInput * velocidadMovimiento * Time.deltaTime);
-        controller.Move(movimientoVertical * Time.deltaTime);
-    }
+   
     
 
     void AumentarVelocidades()
