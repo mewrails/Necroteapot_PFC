@@ -12,6 +12,13 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("escena_juego");
     }
 
+    //boton creditos
+
+    public void Creds()
+    {
+        SceneManager.LoadScene("creds");
+    }
+
     //cerrar el juego
     public void Done()
     {
