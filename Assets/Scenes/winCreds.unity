@@ -181,7 +181,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Won. Thank you for Playing
+  m_text: 'A game by NecroTeapot
+
+
+    Ivan San Valentin Cadavid aka EvanSketchs
+
+    Paula
+    C Ruiz aka mewrails
+
+
+    Thanks For Playing.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae43cf73ac1ed944bded3aedd5af75d, type: 2}
   m_sharedMaterial: {fileID: 152563558244201180, guid: 0ae43cf73ac1ed944bded3aedd5af75d,
