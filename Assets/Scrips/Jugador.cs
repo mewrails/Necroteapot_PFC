@@ -3,9 +3,7 @@ using UnityEngine.InputSystem; //iclusion del nuevo sistema de inputs
 
 public class Jugador : MonoBehaviour
 {
-    // Estado fisico
-
-    [SerializeField] private int vida, cordura;
+    
 
     //////////////////////////////////////////////
     // Movimiento
@@ -62,7 +60,7 @@ public class Jugador : MonoBehaviour
 
         //////////////////////////////////////
 
-        //sprin
+        //sprint
         misControles.gamplay.Sprin.started += SprinStarted;
         misControles.gamplay.Sprin.canceled += SprinCanceled;
 

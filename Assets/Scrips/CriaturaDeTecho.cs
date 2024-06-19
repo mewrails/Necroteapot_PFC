@@ -25,10 +25,6 @@ public class CriaturaDeTecho : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -71,7 +67,7 @@ public class CriaturaDeTecho : MonoBehaviour
 
         if (collsDetectado.Length > 0)
         {
-            Debug.Log("morgan");
+            //Debug.Log("morgan");
             transform.position = puntoSubida.position;
             transform.rotation = puntoSubida.rotation;
 
