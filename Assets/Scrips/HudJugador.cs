@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HudJugador : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class HudJugador : MonoBehaviour
     public float vida;
     public float MaxVida;
     public Image barraVida;
+
+    public string endScene;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,10 @@ public class HudJugador : MonoBehaviour
 
         barraVida.fillAmount = Mathf.Clamp(vida / MaxVida, 0, 1);
 
+        if (vida <= 0)
+        {
+            SceneManager.LoadScene("loseCreds");
+        }
     }
 
     public HudJugador SaludJugador;
@@ -33,7 +40,7 @@ public class HudJugador : MonoBehaviour
     {
         if (other.GetComponent<HudJugador>())
         {
-            SaludJugador.vida -= damage * Time.deltaTime;
+            SaludJugador.vida -= damage;
         }
     }
 
