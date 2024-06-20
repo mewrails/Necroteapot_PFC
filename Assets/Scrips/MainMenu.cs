@@ -24,6 +24,6 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
         //para compprobar que funciona
-        Debug.Log("Game Finished");
+        //Debug.Log("Game Finished");
     }
 }
