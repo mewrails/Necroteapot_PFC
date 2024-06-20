@@ -6,10 +6,12 @@ public class Llave : MonoBehaviour
 {
     //puerta coms
     public GameObject puertaCollider;
+    public GameObject uiDoorTxt;
 
     // Start is called before the first frame update
     void Start()
     {
+        uiDoorTxt.SetActive(false);
         //puerta cerrada cuando empieza el juego
         puertaCollider.SetActive(true);
     }
@@ -22,6 +24,14 @@ public class Llave : MonoBehaviour
             //destruye llave y abre puerta
             puertaCollider.SetActive(false);
             Destroy(gameObject);
+            uiDoorTxt.SetActive(true);
+            StartCoroutine("WaitTime");
         }
+    }
+
+    IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(1);
+        uiDoorTxt.SetActive(false);
     }
 }

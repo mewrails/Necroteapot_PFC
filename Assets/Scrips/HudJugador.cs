@@ -38,6 +38,7 @@ public class HudJugador : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //recibe daño
         if (other.GetComponent<HudJugador>())
         {
             SaludJugador.vida -= damage;

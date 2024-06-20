@@ -17,12 +17,14 @@ public class Damage : MonoBehaviour
     {
         if (other.GetComponent<HudJugador>())
         {
+            //recibe daño y actualiza el hud
             SaludJugador.vida -= damage;
             uiTxt.SetActive(true);
             StartCoroutine("WaitTime");
         }
     }
 
+    //texto hud
     IEnumerator WaitTime()
     {
         yield return new WaitForSeconds(1);
