@@ -27,10 +27,10 @@ public class HudJugador : MonoBehaviour
 
         barraVida.fillAmount = Mathf.Clamp(vida / MaxVida, 0, 1);
 
-       // if (vida <= 0)
-       // {
-        //    SceneManager.LoadScene("loseCreds");
-       // }
+       if (vida <= 0)
+        {
+            SceneManager.LoadScene("loseCreds");
+        }
     }
 
     public HudJugador SaludJugador;
