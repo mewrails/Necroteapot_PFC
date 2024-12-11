@@ -31,11 +31,32 @@ public class NoteController : MonoBehaviour
 
     void Update()
     {
-        
+        if (isOpen)
+        {
+            if((Input.GetKeyDown(closeKey)))
+            {
+                DisableNote();
+            }
+        }
     }
 
     public void ShowNote()
     {
-        //noteTextAreaUI.text = MoveNote
+        MoveNoteTXT.text = MoveNote;
+        NotaBG.SetActive(true);
+        openEvent.Invoke();
+        DisablePlayer(true);
+        isOpen = true;
+    }
+    public void DisableNote()
+    {
+        NotaBG.SetActive(false);
+        DisablePlayer(false);
+        isOpen = false;
+    }
+
+    void DisablePlayer (bool disable)
+    {
+        jugador.enabled = !disable;
     }
 }

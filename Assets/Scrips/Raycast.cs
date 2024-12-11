@@ -67,11 +67,11 @@ public class Raycast : MonoBehaviour
     {
         if (on)
         {
-            xhair.color = Color.yellow;
+            xhair.color = Color.white;
         }
         else
         {
-            xhair.color = Color.white;
+            xhair.color = Color.yellow;
         }
 
     }
