@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    //boton de controles
+    public void Controls()
+    {
+        SceneManager.LoadScene("controls");
+    }
     //boton de inicio
     public void Play()
     {
