@@ -41,7 +41,9 @@ public class openKeypad : MonoBehaviour
         if(Input.GetKey(KeyCode.E) && inreach)
         {
             keypadOB.SetActive(true);
-            
+            Cursor.lockState = CursorLockMode.None;
         }
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

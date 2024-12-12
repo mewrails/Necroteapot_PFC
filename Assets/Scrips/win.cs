@@ -11,6 +11,7 @@ public class win : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //WinLoseScript.GanarNivel();
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("winCreds");
 
     }

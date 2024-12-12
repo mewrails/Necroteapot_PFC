@@ -29,6 +29,7 @@ public class HudJugador : MonoBehaviour
 
        if (vida <= 0)
         {
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("loseCreds");
         }
     }
