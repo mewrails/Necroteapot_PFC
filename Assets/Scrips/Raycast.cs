@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Raycast : MonoBehaviour
 {
     [Header("Raycast Features")]
-    [SerializeField] private float rayLength = 5;
+    [SerializeField] private float rayLength = 10;
     private Camera _camera;
 
     private NoteController NoteController;
@@ -34,6 +34,7 @@ public class Raycast : MonoBehaviour
             {
                 NoteController = readableItem;
                 HighlightXhair(true);
+                
             }
             else
             {

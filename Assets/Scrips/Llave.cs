@@ -27,7 +27,6 @@ public class Llave : MonoBehaviour
             puertaCollider.SetActive(false);
             llaveCollider.SetActive(false);
             Destroy(gameObject);
-            
 
             uiDoorTxt.SetActive(true);
             StartCoroutine("WaitTime");
