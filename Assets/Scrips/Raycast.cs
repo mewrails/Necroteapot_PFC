@@ -21,14 +21,24 @@ public class Raycast : MonoBehaviour
     {
         _camera = GetComponent<Camera>();
 
+        if (_camera == null)
+        {
+            _camera = Camera.main;
+        }
+
+        
+        
     }
 
     void Update()
     {
+        Ray ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         //linea to larga para centrar la camara y el raycast
-        if (Physics.Raycast(_camera.ViewportToWorldPoint(new Vector3 (0.5f , 0.5f)), transform.forward, out RaycastHit hit, rayLength))
+        if (Physics.Raycast(ray, out RaycastHit hit, rayLength))
         {
             var readableItem = hit.collider.GetComponent<NoteController>();
+
+            Debug.DrawRay(transform.position, transform.forward, Color.red);
 
             if (readableItem != null)
             {
