@@ -181,21 +181,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GAME CONTROLS:
-
-
-
-
-    move:  WASD
-
-
-    run: LEFT SHIFT
-
-
-    interact: 
-    E and SPACE
-
-'
+  m_text: "GAME CONTROLS:\n\n\n\nWalk:  WASD\n\nLook around: MOUSE\n\nInteract: 
+    E \nExit Notes: SPACE\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae43cf73ac1ed944bded3aedd5af75d, type: 2}
   m_sharedMaterial: {fileID: 152563558244201180, guid: 0ae43cf73ac1ed944bded3aedd5af75d,
@@ -223,7 +210,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 67.35
   m_fontSizeBase: 66.38
   m_fontWeight: 400
   m_enableAutoSizing: 1
