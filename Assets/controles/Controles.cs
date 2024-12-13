@@ -71,15 +71,6 @@ public partial class @Controles : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""MouseMovement"",
-                    ""type"": ""Value"",
-                    ""id"": ""87ddadb6-04a4-4edc-aec2-017c73eccbb1"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -214,17 +205,6 @@ public partial class @Controles : IInputActionCollection2, IDisposable
                     ""action"": ""fgtsrdtgsr"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""971c7645-2d45-4228-aa4f-a7d35f680a06"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseMovement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -244,7 +224,6 @@ public partial class @Controles : IInputActionCollection2, IDisposable
         m_gamplay_Zoom = m_gamplay.FindAction("Zoom", throwIfNotFound: true);
         m_gamplay_pRUEBA = m_gamplay.FindAction("pRUEBA", throwIfNotFound: true);
         m_gamplay_fgtsrdtgsr = m_gamplay.FindAction("fgtsrdtgsr", throwIfNotFound: true);
-        m_gamplay_MouseMovement = m_gamplay.FindAction("MouseMovement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -309,7 +288,6 @@ public partial class @Controles : IInputActionCollection2, IDisposable
     private readonly InputAction m_gamplay_Zoom;
     private readonly InputAction m_gamplay_pRUEBA;
     private readonly InputAction m_gamplay_fgtsrdtgsr;
-    private readonly InputAction m_gamplay_MouseMovement;
     public struct GamplayActions
     {
         private @Controles m_Wrapper;
@@ -319,7 +297,6 @@ public partial class @Controles : IInputActionCollection2, IDisposable
         public InputAction @Zoom => m_Wrapper.m_gamplay_Zoom;
         public InputAction @pRUEBA => m_Wrapper.m_gamplay_pRUEBA;
         public InputAction @fgtsrdtgsr => m_Wrapper.m_gamplay_fgtsrdtgsr;
-        public InputAction @MouseMovement => m_Wrapper.m_gamplay_MouseMovement;
         public InputActionMap Get() { return m_Wrapper.m_gamplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -344,9 +321,6 @@ public partial class @Controles : IInputActionCollection2, IDisposable
                 @fgtsrdtgsr.started -= m_Wrapper.m_GamplayActionsCallbackInterface.OnFgtsrdtgsr;
                 @fgtsrdtgsr.performed -= m_Wrapper.m_GamplayActionsCallbackInterface.OnFgtsrdtgsr;
                 @fgtsrdtgsr.canceled -= m_Wrapper.m_GamplayActionsCallbackInterface.OnFgtsrdtgsr;
-                @MouseMovement.started -= m_Wrapper.m_GamplayActionsCallbackInterface.OnMouseMovement;
-                @MouseMovement.performed -= m_Wrapper.m_GamplayActionsCallbackInterface.OnMouseMovement;
-                @MouseMovement.canceled -= m_Wrapper.m_GamplayActionsCallbackInterface.OnMouseMovement;
             }
             m_Wrapper.m_GamplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -366,9 +340,6 @@ public partial class @Controles : IInputActionCollection2, IDisposable
                 @fgtsrdtgsr.started += instance.OnFgtsrdtgsr;
                 @fgtsrdtgsr.performed += instance.OnFgtsrdtgsr;
                 @fgtsrdtgsr.canceled += instance.OnFgtsrdtgsr;
-                @MouseMovement.started += instance.OnMouseMovement;
-                @MouseMovement.performed += instance.OnMouseMovement;
-                @MouseMovement.canceled += instance.OnMouseMovement;
             }
         }
     }
@@ -389,6 +360,5 @@ public partial class @Controles : IInputActionCollection2, IDisposable
         void OnZoom(InputAction.CallbackContext context);
         void OnPRUEBA(InputAction.CallbackContext context);
         void OnFgtsrdtgsr(InputAction.CallbackContext context);
-        void OnMouseMovement(InputAction.CallbackContext context);
     }
 }

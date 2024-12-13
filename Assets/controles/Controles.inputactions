@@ -49,15 +49,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "MouseMovement",
-                    "type": "Value",
-                    "id": "87ddadb6-04a4-4edc-aec2-017c73eccbb1",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -190,17 +181,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "fgtsrdtgsr",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "971c7645-2d45-4228-aa4f-a7d35f680a06",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MouseMovement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
