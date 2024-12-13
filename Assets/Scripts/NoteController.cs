@@ -55,8 +55,19 @@ public class NoteController : MonoBehaviour
         isOpen = false;
     }
 
-    void DisablePlayer (bool disable)
+   /* void DisablePlayer (bool disable)
     {
+        jugador.enabled = !disable;
+    }*/
+    void DisablePlayer(bool disable)
+    {
+        if (jugador == null)
+        {
+            Debug.LogError("Jugador no esta asignado! Asignalo a el NoteController en el Inspector");
+            return;
+        }
+
+        Debug.Log($"Disabling Player: {disable}");
         jugador.enabled = !disable;
     }
 }
