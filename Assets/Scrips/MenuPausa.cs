@@ -19,7 +19,7 @@ public class MenuPausa : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             pausarJuego();
-            Cursor.lockState = CursorLockMode.None;
+            
         }
     }
 
@@ -28,6 +28,7 @@ public class MenuPausa : MonoBehaviour
         Pausa.SetActive(true);
         Time.timeScale = 0f;
         pausita = true;
+        //Cursor.lockState = CursorLockMode.None;
     }
 
     public void Despausar()

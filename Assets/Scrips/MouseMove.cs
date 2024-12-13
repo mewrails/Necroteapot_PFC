@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MouseMove : MonoBehaviour
 {
+    [Header ("mouse settings")]
     public float x;
     public float y;
     public float sensitivity = -1f;
@@ -11,7 +13,7 @@ public class MouseMove : MonoBehaviour
     private Vector3 rotate;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()

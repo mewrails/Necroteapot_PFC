@@ -3,15 +3,13 @@ using UnityEngine.InputSystem; //iclusion del nuevo sistema de inputs
 
 public class Jugador : MonoBehaviour
 {
-    
-
     //////////////////////////////////////////////
     // Movimiento
-
+    [Header("ajustesMovimiento")]
     [SerializeField] private float velocidadAndar, velocidadCorrer;
     private float velocidadMovimiento;
-    private float velocidadRotacion;
-    [SerializeField] private float velocidadAndarRotacion, velocidadCorrerRotacion;
+    //private float velocidadRotacion;
+    //[SerializeField] private float velocidadAndarRotacion, velocidadCorrerRotacion;
     [SerializeField, Tooltip("Tocar este numerito, suaviza la rotación")] private float suavidadRotacion;
     private Vector3 movimientoVertical;
     CharacterController controller;
@@ -21,6 +19,7 @@ public class Jugador : MonoBehaviour
 
     //////////////////////////////////////////////
     // Gravedad
+    [Header("ajustesGravedad")]
 
     [SerializeField] private float factorGravedad,radioDeteccion;
     [SerializeField] private LayerMask queSuelo;
@@ -28,7 +27,7 @@ public class Jugador : MonoBehaviour
 
     //////////////////////////////////////////////
     // Camara
-
+    [Header("ajustesCamara")]
     [SerializeField] private GameObject camaraNormal, camaraZoom;
     Transform cam;
 
@@ -41,7 +40,7 @@ public class Jugador : MonoBehaviour
         cam = Camera.main.transform;
 
         velocidadMovimiento = velocidadAndar;
-        velocidadRotacion = velocidadAndarRotacion;
+        //velocidadRotacion = velocidadAndarRotacion;
     }
 
     // SE ejecuta automaticamente antes de start cada vez
@@ -72,6 +71,22 @@ public class Jugador : MonoBehaviour
 
         //Giroscopio
         misControles.gamplay.pRUEBA.performed += PRUEBA_started;
+    }
+
+    private void OnDisable()
+    {
+        misControles.gamplay.Movimiento.performed -= MoverseStarted;
+        misControles.gamplay.Movimiento.canceled -= MoverseCanceled;
+
+        misControles.gamplay.Sprin.started -= SprinStarted;
+        misControles.gamplay.Sprin.canceled -= SprinCanceled;
+
+        misControles.gamplay.Zoom.started -= ZoomStarted;
+        misControles.gamplay.Zoom.canceled -= ZoomCanceled;
+
+        misControles.gamplay.pRUEBA.performed -= PRUEBA_started;
+
+        misControles.gamplay.Disable();
     }
 
     private void PRUEBA_started(InputAction.CallbackContext obj)
@@ -107,34 +122,41 @@ public class Jugador : MonoBehaviour
     private void MoverseStarted(InputAction.CallbackContext valor)
     {
         Vector2 inpunt = valor.ReadValue<Vector2>();
-
-        movimientoVertical = new Vector3(inpunt.x, 0, inpunt.y);
+        movimientoVertical = new Vector3(inpunt.x, movimientoVertical.y, inpunt.y);
     }
     private void MoverseCanceled(InputAction.CallbackContext valor)
     {
         Vector2 inpunt = valor.ReadValue<Vector2>();
-
-        movimientoVertical = new Vector3(inpunt.x, 0, inpunt.y);
+        movimientoVertical = new Vector3(inpunt.x, movimientoVertical.y, inpunt.y);
     }
    
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
        ActualizarMovimiento();
+        MoverPersonaje();
+    }
+
+    private void MoverPersonaje()
+    {
+        //calcular direccion de movimmiento
+        Vector3 move = transform.forward * movimientoVertical.z + transform.right * movimientoVertical.x;
+        move *= velocidadMovimiento;
+
+        //aplicar gravedad
+        move += Vector3.up * movimientoVertical.y;
+
+        //mover pj
+        controller.Move(move * Time.deltaTime);
     }
 
     private void FixedUpdate()
     {
         //controle
-        transform.Rotate(Vector3.up * movimientoVertical.x * velocidadRotacion * Time.deltaTime);
-        controller.Move(transform.forward * movimientoVertical.z* velocidadMovimiento * Time.deltaTime);
-        controller.Move(movimientoVertical * Time.deltaTime);
+       // transform.Rotate(Vector3.up * movimientoVertical.x * velocidadRotacion * Time.deltaTime);
+        //controller.Move(transform.forward * movimientoVertical.z* velocidadMovimiento * Time.deltaTime);
+        //controller.Move(movimientoVertical * Time.deltaTime);
     }
     void ActualizarMovimiento()
     {
@@ -152,15 +174,13 @@ public class Jugador : MonoBehaviour
     }
     void AumentarVelocidades()
     {
-        velocidadRotacion = velocidadCorrerRotacion;
         velocidadMovimiento = velocidadCorrer;
-
-
+        //velocidadRotacion = velocidadCorrerRotacion;
     }
 
     private void ResetearVelocidades()
     {
-        velocidadRotacion = velocidadAndarRotacion;
+        //velocidadRotacion = velocidadAndarRotacion;
         velocidadMovimiento = velocidadAndar;
     }
 

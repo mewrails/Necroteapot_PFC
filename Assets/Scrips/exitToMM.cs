@@ -7,7 +7,7 @@ public class exitToMM : MonoBehaviour
 {
     public void Back()
     {
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("menuPrincipal");
     }
 }

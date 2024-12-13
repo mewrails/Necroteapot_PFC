@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
     }
     //boton de controles
     public void Controls()
